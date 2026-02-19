@@ -1,0 +1,123 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  font-weight: 300;
+  color: $color-dark;
+  background-color: $color-white;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 52px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include heading-style;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  @include container;
+}
+
+.section-label {
+  display: block;
+  font-family: $font-body;
+  font-size: $font-size-xs;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: $color-primary;
+  margin-bottom: $spacing-sm;
+}
+
+.section-title {
+  @include heading-style;
+  font-size: $font-size-3xl;
+  color: $color-dark;
+  margin-bottom: $spacing-sm;
+
+  @media (max-width: $bp-md) {
+    font-size: $font-size-2xl;
+  }
+}
+
+.section-subtitle {
+  font-size: $font-size-base;
+  color: $color-gray;
+  font-weight: 300;
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+.gold-line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(90deg, $color-primary, $color-primary-light);
+  margin: $spacing-sm 0;
+}
+
+.gold-line--center {
+  margin: $spacing-sm auto;
+}
+
+.btn-outline {
+  @include btn-primary;
+}
+
+.btn-solid {
+  @include btn-solid;
+}
+
+::selection {
+  background: $color-primary-light;
+  color: $color-dark;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-gray-light;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-primary;
+  border-radius: $radius-full;
+}

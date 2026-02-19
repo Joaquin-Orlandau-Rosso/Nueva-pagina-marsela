@@ -1,0 +1,217 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem 0;
+  background: rgba(10, 8, 4, 0.28);
+  backdrop-filter: blur(10px);
+  transition: all $transition-base;
+
+  &--scrolled {
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    padding: 1rem 0;
+    box-shadow: $shadow-sm;
+
+    .navbar__logo-main {
+      color: $color-dark;
+    }
+
+    .navbar__link {
+      color: $color-dark;
+    }
+
+    .navbar__burger {
+      span {
+        background: $color-dark;
+      }
+    }
+  }
+
+  &__container {
+    @include container;
+    @include flex-between;
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &-icon {
+      color: $color-primary;
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
+
+      .navbar:not(.navbar--scrolled) & {
+        filter: drop-shadow(0 0 6px rgba($color-primary, 0.5));
+      }
+    }
+
+    &:hover &-icon {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    &-main {
+      color: $color-white;
+    }
+
+    &-accent {
+      color: $color-primary;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+
+    @media (max-width: $bp-lg) {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 280px;
+      height: 100vh;
+      background: $color-white;
+      flex-direction: column;
+      justify-content: center;
+      gap: $spacing-md;
+      box-shadow: $shadow-lg;
+      transition: right $transition-base;
+      padding: $spacing-xl;
+
+      &--open {
+        right: 0;
+      }
+    }
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    position: relative;
+    transition: color $transition-base;
+    padding-bottom: 4px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 1px;
+      background: $color-primary;
+      transition: width $transition-base, left $transition-base;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: 50%;
+      width: 0;
+      height: 1px;
+      background: $color-primary;
+      transition: width $transition-base, right $transition-base;
+    }
+
+    &:hover {
+      color: $color-primary;
+      letter-spacing: 0.16em;
+
+      &::before {
+        width: 50%;
+        left: 0;
+      }
+
+      &::after {
+        width: 50%;
+        right: 0;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__cta {
+    @include btn-primary;
+    font-size: $font-size-xs;
+    padding: 0.6rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+      opacity: 0;
+    }
+
+    &:hover::before {
+      width: 200px;
+      height: 200px;
+      opacity: 1;
+    }
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+
+    @media (max-width: $bp-lg) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: $color-white;
+      transition: all $transition-base;
+      transform-origin: center;
+    }
+
+    &--open {
+      span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+    }
+  }
+}

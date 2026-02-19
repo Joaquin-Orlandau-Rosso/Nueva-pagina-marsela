@@ -1,0 +1,56 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.whatsapp-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  background: #25d366;
+  border-radius: 50%;
+  @include flex-center;
+  color: $color-white;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: all $transition-base;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+
+    .whatsapp-btn__tooltip {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &__tooltip {
+    position: absolute;
+    right: calc(100% + 12px);
+    background: $color-dark;
+    color: $color-white;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 6px 12px;
+    border-radius: $radius-sm;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: all $transition-base;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -6px;
+      transform: translateY(-50%);
+      border: 6px solid transparent;
+      border-left-color: $color-dark;
+      border-right: none;
+    }
+  }
+}

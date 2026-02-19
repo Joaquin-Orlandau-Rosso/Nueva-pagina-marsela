@@ -1,0 +1,60 @@
+// Colors
+$color-primary: #c9a96e;
+$color-primary-light: #e8d5b0;
+$color-primary-dark: #a07840;
+$color-secondary: #8b5e6e;
+$color-secondary-light: #c49aaa;
+$color-dark: #1a1a1a;
+$color-dark-soft: #2d2d2d;
+$color-gray: #6b6b6b;
+$color-gray-light: #f5f3f0;
+$color-white: #ffffff;
+$color-cream: #faf8f5;
+$color-rose: #f0e6ea;
+
+// Typography
+$font-heading: 'Cormorant Garamond', Georgia, serif;
+$font-body: 'Montserrat', sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-md: 1.125rem;
+$font-size-lg: 1.25rem;
+$font-size-xl: 1.5rem;
+$font-size-2xl: 2rem;
+$font-size-3xl: 2.5rem;
+$font-size-4xl: 3.5rem;
+$font-size-5xl: 5rem;
+
+// Spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 1.5rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$spacing-2xl: 5rem;
+$spacing-3xl: 8rem;
+
+// Breakpoints
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Shadows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 20px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.15);
+$shadow-gold: 0 4px 20px rgba(201, 169, 110, 0.25);
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 16px;
+$radius-full: 9999px;

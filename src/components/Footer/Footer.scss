@@ -1,0 +1,68 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.footer {
+  background: rgba($color-dark, 0.96);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  border-top: 1px solid rgba($color-primary, 0.15);
+
+  &__bar {
+    @include flex-between;
+    padding: 0.75rem 0;
+    gap: $spacing-md;
+
+    @media (max-width: $bp-sm) {
+      flex-direction: column;
+      gap: 6px;
+      padding: 0.6rem 0;
+      text-align: center;
+    }
+  }
+
+  &__logo {
+    font-family: $font-heading;
+    font-size: $font-size-base;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &-main { color: $color-white; }
+    &-accent { color: $color-primary; }
+  }
+
+  &__copy {
+    font-size: $font-size-xs;
+    color: rgba(255, 255, 255, 0.3);
+    font-weight: 300;
+    letter-spacing: 0.04em;
+  }
+
+  &__social {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  &__social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    @include flex-center;
+    color: rgba(255, 255, 255, 0.45);
+    text-decoration: none;
+    transition: all $transition-base;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+      transform: translateY(-2px);
+    }
+  }
+}

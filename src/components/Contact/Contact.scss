@@ -1,0 +1,302 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.contact {
+  background: $color-cream;
+  @include section-padding;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    @include heading-style;
+    font-size: $font-size-3xl;
+    color: $color-dark;
+    margin-bottom: $spacing-sm;
+    line-height: 1.15;
+
+    em {
+      font-style: italic;
+      color: $color-primary;
+    }
+
+    @media (max-width: $bp-md) {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__desc {
+    font-size: $font-size-base;
+    color: $color-gray;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__detail {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  &__detail-icon {
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    background: rgba($color-primary, 0.1);
+    border-radius: 50%;
+    @include flex-center;
+    flex-shrink: 0;
+  }
+
+  &__detail-label {
+    display: block;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: $color-primary;
+    margin-bottom: 2px;
+  }
+
+  &__detail-value {
+    display: block;
+    font-size: $font-size-sm;
+    color: $color-dark-soft;
+    font-weight: 300;
+  }
+
+  &__detail-link {
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: $spacing-sm;
+  }
+
+  &__social-link {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba($color-primary, 0.3);
+    @include flex-center;
+    color: $color-primary;
+    text-decoration: none;
+    transition: all $transition-base;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-white;
+      border-color: $color-primary;
+    }
+  }
+
+  &__email-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: $font-body;
+    text-align: left;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__copy-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: $radius-full;
+    background: rgba($color-primary, 0.12);
+    color: $color-primary;
+    opacity: 0;
+    transform: translateY(2px);
+    transition: all $transition-fast;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+      background: rgba(#2ecc71, 0.12);
+      color: #27ae60;
+    }
+  }
+
+  &__panel {
+    background: $color-white;
+    padding: $spacing-2xl $spacing-xl;
+    box-shadow: $shadow-md;
+    border: 1px solid rgba($color-primary, 0.08);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 560px;
+  }
+
+  &__panel-title {
+    @include heading-style;
+    font-size: $font-size-xl;
+    color: $color-dark;
+    margin-bottom: $spacing-sm;
+  }
+
+  &__panel-desc {
+    font-size: $font-size-sm;
+    color: $color-gray;
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__panel-actions {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__panel-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.65rem 1.25rem;
+    font-family: $font-body;
+    font-size: $font-size-xs;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease, background 0.2s ease, filter 0.2s ease;
+    border-radius: $radius-sm;
+    user-select: none;
+
+    &:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    &:active {
+      transform: scale(0.93) translateY(1px) !important;
+      transition: transform 0.08s ease !important;
+    }
+
+    &--whatsapp {
+      background: #25d366;
+      color: $color-white;
+      box-shadow: 0 3px 12px rgba(37, 211, 102, 0.25);
+
+      &:hover {
+        background: #1da851;
+        box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+      }
+    }
+
+    &--instagram {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: $color-white;
+      box-shadow: 0 3px 12px rgba(220, 39, 67, 0.25);
+
+      &:hover {
+        box-shadow: 0 8px 24px rgba(220, 39, 67, 0.45);
+        filter: brightness(1.08);
+      }
+    }
+
+    &--email {
+      background: transparent;
+      color: $color-primary;
+      border: 1px solid rgba($color-primary, 0.4);
+
+      &:hover {
+        background: $color-primary;
+        color: $color-white;
+        border-color: $color-primary;
+        box-shadow: $shadow-gold;
+      }
+    }
+  }
+
+  &__hours {
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    padding: $spacing-md $spacing-md;
+    background: rgba($color-primary, 0.05);
+    border-left: 3px solid $color-primary;
+    border-radius: 0 $radius-sm $radius-sm 0;
+    margin-top: $spacing-sm;
+  }
+
+  &__hours-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__hours-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__hours-label {
+    display: block;
+    font-size: $font-size-xs;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: $color-primary;
+  }
+
+  &__hours-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__hours-row {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+
+  &__hours-days {
+    font-size: $font-size-sm;
+    color: $color-dark-soft;
+    font-weight: 400;
+  }
+
+  &__hours-time {
+    font-size: $font-size-sm;
+    font-weight: 600;
+    color: $color-dark;
+    background: rgba($color-primary, 0.1);
+    padding: 2px 10px;
+    border-radius: $radius-full;
+    letter-spacing: 0.05em;
+  }
+}
