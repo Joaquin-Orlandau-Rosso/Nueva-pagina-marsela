@@ -7,10 +7,12 @@ const About = () => {
         <div className="about__visual">
           <div className="about__image-wrapper">
             <div className="about__image-placeholder">
-              <div className="about__image-inner">
-                <span className="about__image-icon">✦</span>
-                <p className="about__image-hint">Tu foto aquí</p>
-              </div>
+              <img
+                className="about__image"
+                src="/mama.jpg"
+                alt="Marsela Rosso"
+                loading="lazy"
+              />
             </div>
             <div className="about__image-frame"></div>
           </div>
