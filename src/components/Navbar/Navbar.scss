@@ -10,7 +10,7 @@
   padding: 1.5rem 0;
   background: rgba(10, 8, 4, 0.28);
   backdrop-filter: blur(10px);
-  transition: all $transition-base;
+  transition: background $transition-base, padding $transition-base, box-shadow $transition-base;
 
   &--scrolled {
     background: rgba(255, 255, 255, 0.97);

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './Navbar.scss';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -16,12 +17,7 @@ const Navbar = () => {
   const handleNavClick = (e, target) => {
     e.preventDefault();
     setMenuOpen(false);
-    const el = document.querySelector(target);
-    if (el) {
-      const navbarHeight = document.querySelector('.navbar')?.offsetHeight || 80;
-      const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
+    scrollToSection(target, { delay: 60 });
   };
 
   return (

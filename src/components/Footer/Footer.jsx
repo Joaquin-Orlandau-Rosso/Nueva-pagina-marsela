@@ -1,10 +1,10 @@
 import './Footer.scss';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 const Footer = () => {
   const handleNavClick = (e, target) => {
     e.preventDefault();
-    const el = document.querySelector(target);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection(target);
   };
 
   return (

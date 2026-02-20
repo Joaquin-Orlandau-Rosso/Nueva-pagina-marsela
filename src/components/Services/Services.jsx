@@ -1,4 +1,5 @@
 import './Services.scss';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 const services = [
   {
@@ -27,6 +28,15 @@ const services = [
     description:
       'Acompañamiento personalizado para descubrir tu potencial, superar bloqueos y construir la vida que merecés con herramientas concretas.',
     items: ['Coaching Individual', 'Gestión Emocional', 'Definición de Objetivos', 'Mindfulness & Bienestar'],
+  },
+  {
+    id: 4,
+    icon: '❀',
+    category: 'Emociones',
+    title: 'Flores de Bach',
+    description:
+      'Armonización emocional a través de esencias florales. Un acompañamiento suave y natural para transitar momentos de estrés, cambios y estados de ánimo.',
+    items: ['Equilibrio Emocional', 'Estrés & Ansiedad', 'Acompañamiento en Procesos', 'Mejor Descanso'],
   },
 ];
 
@@ -66,7 +76,7 @@ const Services = () => {
                 className="services__card-btn"
                 onClick={(e) => {
                   e.preventDefault();
-                  document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
+                  scrollToSection('#contacto');
                 }}
               >
                 Consultar

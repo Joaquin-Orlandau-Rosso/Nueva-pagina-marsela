@@ -1,4 +1,5 @@
 import './About.scss';
+import { scrollToSection } from '../../utils/scrollToSection';
 
 const About = () => {
   return (
@@ -61,7 +62,7 @@ const About = () => {
             className="btn-solid"
             onClick={(e) => {
               e.preventDefault();
-              document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' });
+              scrollToSection('#contacto');
             }}
           >
             Conocerme más
