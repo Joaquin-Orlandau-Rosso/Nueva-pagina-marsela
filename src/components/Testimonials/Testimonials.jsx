@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Testimonials.scss';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const testimonials = [
   {
@@ -34,6 +35,8 @@ const testimonials = [
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [sliderRef, sliderVisible] = useScrollAnimation({ threshold: 0.2 });
 
   const prev = () => setActive((a) => (a === 0 ? testimonials.length - 1 : a - 1));
   const next = () => setActive((a) => (a === testimonials.length - 1 ? 0 : a + 1));
@@ -43,13 +46,19 @@ const Testimonials = () => {
   return (
     <section className="testimonials" id="testimonios">
       <div className="testimonials__container container">
-        <div className="testimonials__header">
+        <div 
+          ref={headerRef}
+          className={`testimonials__header scroll-animate ${headerVisible ? 'is-visible animate-slide-up' : ''}`}
+        >
           <span className="section-label">Lo que dicen</span>
           <h2 className="section-title">Testimonios</h2>
           <div className="gold-line gold-line--center"></div>
         </div>
 
-        <div className="testimonials__slider">
+        <div 
+          ref={sliderRef}
+          className={`testimonials__slider scroll-animate ${sliderVisible ? 'is-visible animate-scale-in' : ''}`}
+        >
           <div className="testimonials__quote">&ldquo;</div>
           <div className="testimonials__content">
             <div className="testimonials__stars">

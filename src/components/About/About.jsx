@@ -1,11 +1,18 @@
 import './About.scss';
 import { scrollToSection } from '../../utils/scrollToSection';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const About = () => {
+  const [visualRef, visualVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.2 });
+
   return (
     <section className="about" id="sobre-mi">
       <div className="about__container container">
-        <div className="about__visual">
+        <div 
+          ref={visualRef}
+          className={`about__visual scroll-animate ${visualVisible ? 'is-visible animate-slide-left' : ''}`}
+        >
           <div className="about__image-wrapper">
             <div className="about__image-placeholder">
               <img
@@ -23,7 +30,10 @@ const About = () => {
           </div>
         </div>
 
-        <div className="about__content">
+        <div 
+          ref={contentRef}
+          className={`about__content scroll-animate ${contentVisible ? 'is-visible animate-slide-right' : ''}`}
+        >
           <span className="section-label">Sobre Mí</span>
           <h2 className="about__title">
             Hola, soy <em>Marsela Rosso</em>

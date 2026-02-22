@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import './Contact.scss';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const EMAIL = 'marcela_rosso@hotmail.com';
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
+  const [panelRef, panelVisible] = useScrollAnimation({ threshold: 0.2 });
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(EMAIL).then(() => {
@@ -16,7 +18,10 @@ const Contact = () => {
   return (
     <section className="contact" id="contacto">
       <div className="contact__container container">
-        <div className="contact__panel">
+        <div 
+          ref={panelRef}
+          className={`contact__panel scroll-animate ${panelVisible ? 'is-visible animate-scale-in' : ''}`}
+        >
           <h3 className="contact__panel-title">Contactame directamente</h3>
           <div className="gold-line"></div>
           <p className="contact__panel-desc">

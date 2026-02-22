@@ -1,5 +1,6 @@
 import './Services.scss';
 import { scrollToSection } from '../../utils/scrollToSection';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
 const services = [
   {
@@ -41,10 +42,16 @@ const services = [
 ];
 
 const Services = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [gridRef, gridVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section className="services" id="servicios">
       <div className="services__container container">
-        <div className="services__header">
+        <div 
+          ref={headerRef}
+          className={`services__header scroll-animate ${headerVisible ? 'is-visible animate-slide-up' : ''}`}
+        >
           <span className="section-label">Lo que ofrezco</span>
           <h2 className="section-title">Mis Servicios</h2>
           <div className="gold-line"></div>
@@ -54,9 +61,15 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="services__grid">
-          {services.map((service) => (
-            <div className="services__card" key={service.id}>
+        <div 
+          ref={gridRef}
+          className="services__grid"
+        >
+          {services.map((service, index) => (
+            <div 
+              className={`services__card scroll-animate ${gridVisible ? `is-visible animate-slide-up animate-delay-${index + 1}` : ''}`}
+              key={service.id}
+            >
               <div className="services__card-top">
                 <span className="services__card-icon">{service.icon}</span>
                 <span className="services__card-category">{service.category}</span>
