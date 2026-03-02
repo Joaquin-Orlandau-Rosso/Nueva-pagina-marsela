@@ -1,16 +1,34 @@
-# React + Vite
+# Desafío Profesional – Front End Developer (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Descripción
 
-Currently, two official plugins are available:
+Este proyecto corresponde al Desafío Profesional del track React + JavaScript (Front End).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El objetivo fue aplicar de manera integral los conocimientos adquiridos durante el curso, desarrollando una aplicación funcional utilizando React.
 
-## React Compiler
+## 🚀 Tecnologías utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- Vite
+- CSS
 
-## Expanding the ESLint configuration
+## 🎯 Funcionalidades implementadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Componentización modular
+- Manejo de estado con React
+- Diseño responsive
+- Estructura organizada por componentes
+
+## 🌐 Deploy
+
+Aplicación desplegada en Vercel:
+https://marselarosso.vercel.app/
+
+## 📂 Repositorio
+
+El repositorio cuenta con múltiples commits que reflejan el progreso del desarrollo, cumpliendo con el requisito mínimo solicitado en la consigna.
+
+---
+
+Autor: Joaquín Orlandau Rosso
